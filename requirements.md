@@ -92,3 +92,11 @@ The <Link> component extends the HTML <a> element, and is the primary way to nav
 We need to import it from <next/link>
 
 ### how to programatically naviagte using the App router
+
+### Templates
+Templates are similar to layout in that they wrap each child layout or page
+But with templates, when a user navigates between routes that share a template, a new instance of the componenet is mounter, DOM elements are recreated, state is not preserved, and effects are re-synchronized.
+<A template can be defined by exporting a default React Componenet from a template.js or template.tsx file>
+<Templates also accept children prop which will render the nested segments in the route>
+<For sharedUI always prefer to use Layouts, but when you need updated state use templates>
+<You can also render a template above a layout when needed>
