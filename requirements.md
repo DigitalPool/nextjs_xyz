@@ -1,5 +1,11 @@
 [Next JS Documentation](https://nextjs.org/docs)
 
+import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+
+
+
 ### install node.js by visiting nodejs.org and download the latest version
 
 to create a new nextjs program you run, npx create-next-app@latest
@@ -40,11 +46,11 @@ You dont have to explicitly handle a non matching route. Next.js provides a defa
 Dynamic Routes. Name the route folder with [], Nextjs would create dynamic numbered routes
 
 export default function ProductDetails( { params }) {
-  return (
-      <h1 className="text-3xl font-bold underline">
-        Details about product {params.productid}
-      </h1>
-  )
+	return (
+			<h1 className="text-3xl font-bold underline">
+				Details about product {params.productid}
+			</h1>
+	)
 }
 
 ### Catch all segments
@@ -100,3 +106,23 @@ But with templates, when a user navigates between routes that share a template, 
 <Templates also accept children prop which will render the nested segments in the route>
 <For sharedUI always prefer to use Layouts, but when you need updated state use templates>
 <You can also render a template above a layout when needed>
+
+
+### Special Files
+***Loading Files***
+Loading files allow us to create loading screens when a spacific route segment is loading. To create it just add a <loading.tsx> to the specific folder. The file automatically wraps the page.tsx file and its contents.
+
+Benefits: give users feedback while loading. And allow to create shared  layouts that remain interactive while new routes loads.
+
+***error handling*** <error.tsx>
+
+### Parallel routes
+
+in Nextjs Parallel Routes are kown as <slots>. Slots help structure our project in modular fashion. slots use the @folder naming convantion. Each slot is then passes as a prop to its corresponding layout.tsx file. 
+For <unmatched routes> add a default.tsx to the slots and children, and prefix the export name with "Default"
+
+### Conditional Routes
+Allows to render different URL for same page, based on particular state, or user state e.g login/notlogin.
+
+### Intercepting Routes
+Allow you to intercept or stop the default routing behaviour to present an alternate view or component when navigating through the UI, while still preserving the intended route for scenarios like page reloads.

@@ -1,13 +1,22 @@
+"use client";
+
 import { notFound } from "next/navigation";
+import { use } from "react";
 
+function getRandomInt(count: number) {
+  return Math.floor(Math.random() * count);
+}
 
-export default function ReviewDetails( { params
+export default function ReviewDetail( { params
 
  } : { 
   params: { 
     reviewid: string;
     productid: string;
   } }) {
+    if (getRandomInt(2) === 1) {
+      throw new Error("Error in Review Id");
+    }
   // Check if the reviewid is a number > 1000
   const reviewid = parseInt(params.reviewid);
   if (reviewid > 1000)
