@@ -147,3 +147,14 @@ For example, if you're building an app that needs to talk to third-party service
 Route Handlers are the equivalent of API routes in Page router
 Next.js supports <GET, POST, PUT, PATCH, DELETE, HEAD, and OPTIONS> 
 If an unsupported method is called, Next.js will return a 405 Method Not Allowed response.
+
+### caching
+To ensure caching use 
+<export const dynamic = "force-static">
+you can choose to revalidate the data every amount of time by doing
+<export const revalidate = 10> 
+```Note that caching only works with GET() methods```, POST, PUT or DELETE are never cached.
+Also cahing is not applied to headers() and cookies() or working with request object in GET methoda.
+
+### Middleware
+Middleware allows you intercept and control the flow of requests throughout your application
