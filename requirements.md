@@ -1,3 +1,5 @@
+*** Promise, useclient, useRef, useEffect, async
+
 [Next JS Documentation](https://nextjs.org/docs)
 
 import { useRouter } from "next/navigation";
@@ -126,3 +128,11 @@ Allows to render different URL for same page, based on particular state, or user
 
 ### Intercepting Routes
 Allow you to intercept or stop the default routing behaviour to present an alternate view or component when navigating through the UI, while still preserving the intended route for scenarios like page reloads.
+
+(.) to match segemnts on the same level
+(..) to match segemnts one level above
+(..) to match segemnts two levels above
+(..) to match segemnts from the root app directory
+
+### Parallel Intercepting Routes
+This uses modals which shows like overlays on the main routes, and then can be navigated with the foward and backward arrows.
