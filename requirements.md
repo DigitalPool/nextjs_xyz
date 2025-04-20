@@ -136,3 +136,14 @@ Allow you to intercept or stop the default routing behaviour to present an alter
 
 ### Parallel Intercepting Routes
 This uses modals which shows like overlays on the main routes, and then can be navigated with the foward and backward arrows.
+
+### Route handlers
+The app router lets you create custom request handlers for your routes using a feature called Route Handlers
+Unlike page routes, which give us HTML content, Route Handlers let us build RESTful endpoints with complete control over the response
+Think of it like building a Node + Express app
+There's no need to set up and configure a separate server
+Route Handlers are great when making external API requests as well
+For example, if you're building an app that needs to talk to third-party services Route handlers run server-side, our sensitive info like private keys stays secure and never reaches the browser.
+Route Handlers are the equivalent of API routes in Page router
+Next.js supports <GET, POST, PUT, PATCH, DELETE, HEAD, and OPTIONS> 
+If an unsupported method is called, Next.js will return a 405 Method Not Allowed response.

@@ -7,16 +7,17 @@ function getRandomInt(count: number) {
   return Math.floor(Math.random() * count);
 }
 
-export default function ReviewDetail( { params
-
- } : { 
-  params: { 
-    reviewid: string;
-    productid: string;
-  } }) {
-    if (getRandomInt(2) === 1) {
-      throw new Error("Error in Review Id");
-    }
+export default function ReviewDetail(
+  props: { 
+    params: Promise<{ 
+      reviewid: string;
+      productid: string;
+    }> }
+) {
+  const params = use(props.params);
+  if (getRandomInt(2) === 1) {
+    throw new Error("Error in Review Id");
+  }
   // Check if the reviewid is a number > 1000
   const reviewid = parseInt(params.reviewid);
   if (reviewid > 1000)

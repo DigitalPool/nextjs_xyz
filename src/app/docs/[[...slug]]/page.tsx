@@ -1,4 +1,5 @@
-export default function Docs({params }: { params: { slug: string[] } })  {
+export default async function Docs(props: { params: Promise<{ slug: string[] }> }) {
+    const params = await props.params;
     if (params.slug?.length === 2) {
         return (
             <h1>Viewing docs of feature {params.slug[0]} and concept {params.slug[1]} </h1>

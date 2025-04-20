@@ -1,35 +1,35 @@
-// app/photo-feed/[id]/page.tsx
+// src/app/photo-feed/@modal/(..)photo-feed/[id]/page.tsx
 
-import wondersImages, { WonderImage } from "../../wonders";
 import Image from "next/image";
+import wondersImages, { WonderImage } from "../../wonders";
+import Modal from "@/components/modal";
 
 export default async function PhotoModal({
 	params,
 }: {
-	params: { id: string };
+	params: Promise<{ id: string }>;
 }) {
-	const photo: WonderImage | undefined = wondersImages.find((p) => p.id === params.id);
+	const { id } = await params;
+	const photo: WonderImage | undefined = wondersImages.find((p) => p.id === id);
 
 	if (!photo) {
-		return <div className="text-center">Photo not found</div>;
+		return <div className="text-center p-6">Photo not found.</div>;
 	}
 
 	return (
-		<div className="container mx-auto my-10">
-			<div className="w-1/2 mx-auto">
-				<h1 className="text-3xl font-bold text-center my-4">{photo.name}</h1>
-				<Image
-					alt={photo.name}
-					src={photo.src}
-					className="w-full object-cover aspect-square"
-					width={500}
-					height={500}
-				/>
-				<div className="bg-white py-4 text-center">
-					<h3>Photo by {photo.photographer}</h3>
-					<h3>{photo.location}</h3>
-				</div>
+		<Modal>
+			<Image
+				alt={photo.name}
+				src={photo.src}
+				className="w-full object-cover aspect-square"
+				width={500}
+				height={500}
+			/>
+			<div className="bg-white p-4">
+				<h2 className="text-xl font-semibold">{photo.name}</h2>
+				<h3>{photo.photographer}</h3>
+				<h3>{photo.location}</h3>
 			</div>
-		</div>
+		</Modal>
 	);
 }
